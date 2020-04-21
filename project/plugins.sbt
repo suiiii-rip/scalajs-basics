@@ -4,3 +4,6 @@ addSbtPlugin("com.github.cb372" % "sbt-explicit-dependencies" % "0.2.11")
 addSbtPlugin("net.bzzt" % "sbt-reproducible-builds" % "0.22")
 
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.0.1")
+
+
+libraryDependencies += "org.scala-js" %% "scalajs-env-jsdom-nodejs" % "1.0.0"

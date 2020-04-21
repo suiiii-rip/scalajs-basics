@@ -49,15 +49,18 @@ lazy val app = Project(
     libraryDependencies ++= {
       import dependencies._
       Seq(
-        "org.scala-js" %%% "scalajs-dom" % "1.0.0"
+        "org.scala-js" %%% "scalajs-dom" % "1.0.0",
+        "com.lihaoyi" %%% "utest" % "0.7.4" % "test"
       )
     },
     crossPaths := false,
+    testFrameworks += new TestFramework("utest.runner.Framework"),
 
   )
   .settings(commonSettings: _*)
   .settings(
-    scalaJSUseMainModuleInitializer := true
+    scalaJSUseMainModuleInitializer := true,
+    jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
   )
   .enablePlugins(ScalaJSPlugin)
   .dependsOn(core)
